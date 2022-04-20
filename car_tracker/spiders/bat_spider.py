@@ -55,6 +55,11 @@ class BatSpider(scrapy.Spider):
 		main_image = ''.join(main_image_split)
 		listing.add_value('main_image', main_image)
 
+		price = response.xpath('//strong[@class="info-value"]/text()').get()
+		parsed_price = parsePrice(price)
+		listing.add_value('price', parsed_price)
+		
+
 
 		return listing.load_item()
 

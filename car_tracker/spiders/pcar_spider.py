@@ -100,6 +100,10 @@ class PcarSpider(scrapy.Spider):
 		all_images = ','.join(all_images)
 		listing.add_value('all_images', all_images)
 
+		price = response.xpath('//span[@class="pushed_bid_amount"]/text()').get()
+		parsed_price = parsePrice(price)
+		listing.add_value('price', parsed_price)
+
 		return listing.load_item()
 
 
