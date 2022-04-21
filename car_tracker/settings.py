@@ -9,6 +9,13 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
+
+try:
+	from .local import *
+except:
+	print ('\n\n\nNO LOCAL SETTINGS\n\n\n')
+
+
 BOT_NAME = 'car_tracker'
 
 SPIDER_MODULES = ['car_tracker.spiders']
@@ -64,6 +71,11 @@ FEEDS = {
         },
     }
 }
+
+
+## Proxies
+DOWNLOADER_MIDDLEWARES['scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware'] = 110
+DOWNLOADER_MIDDLEWARES['car_tracker.proxies.smartproxy.ProxyMiddleware'] = 100
 
 
 
