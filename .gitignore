@@ -1,6 +1,7 @@
 *.DS_Store
 *.pyc
 *.csv
+car_tracker/local.py
 
 
 
