@@ -27,7 +27,7 @@ def parseTitle(title):
 
 
 def parseMileage(mileage):
-	if ('KM' in mileage.upper()):
+	if ('KM' in mileage.upper()) or ('KILOMETERS' in mileage.upper()):
 		kilometers = True
 	elif ('k' in mileage):
 		mileage = mileage.replace('k', '000')
@@ -40,7 +40,8 @@ def parseMileage(mileage):
 	else:
 		tmu = False
 
-	parsed_mileage = ''.join([x for x in mileage if (x in ['0','1','2','3','4','5','6','7','8','9'])])
+	parsed_mileage = re.findall(r"\d+", mileage.replace(',', ''))[0]
+	#parsed_mileage = ''.join([x for x in mileage if (x in ['0','1','2','3','4','5','6','7','8','9'])])
 	return parsed_mileage, kilometers, tmu
 
 
