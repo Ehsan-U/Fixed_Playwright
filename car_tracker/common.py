@@ -42,7 +42,7 @@ def parseMileage(mileage):
 		if ('TMU' in mileage.upper()):
 			tmu = True
 		else:
-			tmu = Falsex
+			tmu = False
 
 		parsed_mileage = re.findall(r"\d+", mileage.replace(',', ''))[0]
 		#parsed_mileage = ''.join([x for x in mileage if (x in ['0','1','2','3','4','5','6','7','8','9'])])
