@@ -58,8 +58,9 @@ class BatSpider(scrapy.Spider):
 		price = response.xpath('//strong[@class="info-value"]/text()').get()
 		parsed_price = parsePrice(price)
 		listing.add_value('price', parsed_price)
-		
 
+		end_date = response.xpath('//td[contains(text(), "Ends On")]/following-sibling::td[1]/span/text()').get()
+		listing.add_value('end_date', end_date)
 
 		return listing.load_item()
 

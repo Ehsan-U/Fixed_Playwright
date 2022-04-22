@@ -32,6 +32,7 @@ class Listing(scrapy.Item):
 	kilometers = scrapy.Field()
 	tmu = scrapy.Field()
 	no_reserve = scrapy.Field()
+	end_date = scrapy.Field()
 
 	url = scrapy.Field()
 	raw_title = scrapy.Field()

@@ -61,6 +61,7 @@ FEED_EXPORT_FIELDS = [
 	'source',
 	'main_image',
 	'all_images',
+	'end_date',
 ]
 
 FEEDS = {
