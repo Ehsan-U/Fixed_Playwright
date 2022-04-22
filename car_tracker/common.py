@@ -58,4 +58,4 @@ def parsePrice(price):
 		parsed_price = ''.join([x for x in price if (x in ['0','1','2','3','4','5','6','7','8','9'])])
 		return parsed_price
 	else:
-		return ''
+		return '0'
