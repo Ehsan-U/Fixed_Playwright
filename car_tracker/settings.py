@@ -35,11 +35,6 @@ DEFAULT_REQUEST_HEADERS = {
 ROBOTSTXT_OBEY = False
 
 
-SPLASH_URL = 'https://xyf5mkyz-splash.scrapinghub.com'
-SPLASH_APIKEY = '6d3336cec62747cabdde0ccf1b0b61b3'
-DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
-
-
 FEED_EXPORT_FIELDS = [
 	'year',
 	'make',
@@ -90,6 +85,22 @@ DOWNLOADER_MIDDLEWARES = {
 ## Proxies
 DOWNLOADER_MIDDLEWARES['scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware'] = 110
 DOWNLOADER_MIDDLEWARES['car_tracker.proxies.smartproxy.ProxyMiddleware'] = 100
+
+
+# # playwright
+DOWNLOAD_HANDLERS = {
+    "http": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
+    "https": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
+}
+
+TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
+PLAYWRIGHT_LAUNCH_OPTIONS = {
+    "proxy": {
+        "server": "http://p.webshare.io:80",
+        "username": "hjdkysch-rotate",
+        "password": "iwfapn45qbcm",
+    },
+}
 
 
 

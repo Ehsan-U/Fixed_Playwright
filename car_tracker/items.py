@@ -23,6 +23,7 @@ class Listing(scrapy.Item):
 	vin = scrapy.Field()
 	miles = scrapy.Field()
 	color = scrapy.Field()
+	interior_color = scrapy.Field()
 	transmission = scrapy.Field()
 	engine = scrapy.Field()
 	location = scrapy.Field()
